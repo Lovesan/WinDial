@@ -55,16 +55,18 @@ WIN_DIAL_EXTERN BOOL WinDialOpenConnection(LPCWSTR name)
 {  
   RASDIALPARAMSW params;
   BOOL pwd;
-  DWORD ret;
+  DWORD ret, i = 0;
   HRASCONN conn = NULL;
-  WCHAR *ptr;
   if(WinDialFindConnection(name))
     return TRUE;
   memset(&params, 0, sizeof(params));
   params.dwSize = sizeof(params);
-  ptr = &params.szEntryName[0];
-  while(*ptr++ = *name++)
-    ;
+  while(i < (sizeof(params.szEntryName) - 1))
+  {
+      if(!(params.szEntryName[i] = name[i]))
+          break;
+      ++i;
+  }
   ret = RasGetEntryDialParamsW(NULL, &params, &pwd);
   if(ERROR_SUCCESS != ret)
     return FALSE;
