@@ -1,0 +1,6 @@
+﻿LIBRARY WinDial
+
+EXPORTS
+    WinDialFindConnection
+    WinDialOpenConnection
+    WinDialCloseConnection    

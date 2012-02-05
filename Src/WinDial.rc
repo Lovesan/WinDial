@@ -1,0 +1,43 @@
+#include <windows.h>
+#include "WinDial.h"
+
+#if defined(__x86_64__) || defined(_M_X64)
+ISOLATIONAWARE_MANIFEST_RESOURCE_ID RT_MANIFEST "WinDial-x64.manifest"
+#else
+ISOLATIONAWARE_MANIFEST_RESOURCE_ID RT_MANIFEST "WinDial-x86.manifest"
+#endif
+
+#define WIN_DIAL_FILENAME "WinDial.dll"
+
+VS_VERSION_INFO VERSIONINFO 
+FILEVERSION WIN_DIAL_MAJOR, WIN_DIAL_MINOR, WIN_DIAL_REVISION, WIN_DIAL_BUILD
+PRODUCTVERSION WIN_DIAL_MAJOR, WIN_DIAL_MINOR, WIN_DIAL_REVISION, WIN_DIAL_BUILD
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+#if defined(DEBUG) || defined(_DEBUG)
+FILEFLAGS 1
+#else
+FILEFLAGS 0
+#endif
+FILEOS VOS__WINDOWS32
+FILETYPE VFT_DLL
+FILESUBTYPE 0
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "00000000"
+        {
+            VALUE "FileDescription", "WinDial library"
+            VALUE "FileVersion", WIN_DIAL_VERSION
+            VALUE "ProductVersion", WIN_DIAL_VERSION
+            VALUE "InternalName", WIN_DIAL_FILENAME
+            VALUE "OriginalFilename", WIN_DIAL_FILENAME
+            VALUE "ProductName", "WinDial"
+            VALUE "Comments", "Report bugs to <lovesan.ru at gmail.com>"
+            VALUE "LegalCopyright", "(C) 2012 Dmitry Ignatiev <lovesan.ru at gmail.com>"            
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x0000, 0x0000
+    }
+}
