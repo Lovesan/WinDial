@@ -3,7 +3,7 @@
           manifestVersion="1.0">
     <assemblyIdentity type="win32"
                       name="WinDial"
-                      version="0.1.0.0"
+                      version="0.1.1.0"
                       processorArchitecture="AMD64"
                       publicKeyToken="5d8a83df18f27d40"/>
     <file name="WinDial.dll"/>
